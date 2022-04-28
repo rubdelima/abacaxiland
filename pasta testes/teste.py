@@ -9,7 +9,6 @@ tam_bolona = 40
 
 velocity = 25
 #condição da bolinha
-bolinhas = True
 xa= 100
 ya= 100
 tam_bolinha = 10
@@ -35,6 +34,8 @@ while janela_aberta:
         x -= velocity
     if comandos[pygame.K_RIGHT]:
         x += velocity
+    if comandos[pygame.K_SPACE]:
+        tam_bolona += 5
     
     #atualizar e não deixar um "rastro"
     janela.fill((0,0,0))
