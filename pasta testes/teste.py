@@ -3,6 +3,7 @@ import random
 pygame.init()
 
 caimento = 0
+velocidade_caimento = 10
 
 #coordenadas da bolona verde
 player_x = 400
@@ -10,31 +11,96 @@ player_y = 300
 tam_bolona = 40
 velocity = 25
 
-#condição da bolinha vermelha
+#condição das bolinhas
 bolinha_x = 400
 bolinha_y = 100
 tam_bolinha = 10
-
-#Score
+caimento = 0
+velocidade_caimento = 10
+#####################Score##############################################################
 pontuacao_valor = 0
-font = pygame.font.Font('freesansbold.ttf ', 32)
+font = pygame.font.Font('freesansbold.ttf', 20)
 textX = 10
 textY = 10
 
 def mostrar_pontos(x, y):
     pontuacao = font.render("Pontuação: " + str(pontuacao_valor), True, (255, 255, 255))
-    screen.blit(pontuacao, (x, y))
+    janela.blit(pontuacao, (x, y))
+    amarelin = font.render("Amarelo: " + str(amarelo), True, (255, 215, 0))
+    janela.blit(amarelin, ((x+170), y))
+    azulzin = font.render("Azul: " + str(azul), True, (0, 255, 255))
+    janela.blit(azulzin, ((x+300), y))
+    vermelhin = font.render("Vermelho: " + str(vermelho), True, (255, 0, 0))
+    janela.blit(vermelhin, ((x+400), y))
+    verdin = font.render("Verde: " + str(verde), True, (124, 252, 0))
+    janela.blit(verdin, ((x+530), y))
+    roxin = font.render("Roxo: " + str(roxo), True, (128, 0, 128))
+    janela.blit(roxin, ((x+640), y))
+    branquin = font.render("Branco: " + str(branco), True, (255, 255, 255))
+    janela.blit(branquin, ((x+740), y))
+    tempo = font.render("Tempo: " + str((time//30)), True, (255, 255, 255))
+    janela.blit(tempo, ((x), y+30))
+    
+time = 0
 
-janela = pygame.display.set_mode((800,600)) #Criar a janela
+#########################################################################################
+
+ #tipos de bolinha:
+listas_de_bolinhas = ['amarelo', 'azul', 'vermelho', 'verde', 'roxo', 'branco']
+bolinhas = {"amarelo" :"255,215,0", 'azul' :"0,255,255","vermelho" :"255,0,0", "verde" :"124,252,0","roxo" :"128,0,128", 'branco' :"255,255,255"}
+amarelo = 0
+azul = 0
+vermelho = 0
+verde = 0
+roxo = 0
+branco = 0
+def conversao_pont(a):
+    global amarelo
+    global azul
+    global vermelho
+    global verde
+    global roxo
+    global branco
+    if a == "amarelo": amarelo += 1
+    if a == "azul": azul += 1
+    if a == "vermelho": vermelho += 1
+    if a == "verde": verde += 1
+    if a == "roxo": roxo +=1
+    if a == "branco": branco += 1
+
+def nova_posicao():
+    global bolinha_x
+    global bolinha_y
+    global velocidade_caimento
+    random.seed();
+    bolinha_x  = random.randint(100,700)
+    bolinha_y  = 0
+    velocidade_caimento +=3
+
+def nova_cor():
+    global gama1
+    global gama2
+    global gama3
+    global bola_da_vez
+    bola_da_vez = random.choice(listas_de_bolinhas)
+    a = bolinhas[bola_da_vez]
+    b,c,d = a.split(",")
+    gama1 = int(b)
+    gama2 = int(c)
+    gama3 = int(d)
+    
+    
+#########bola da vez#############
+bola_da_vez = "verde"
+gama1 = 0
+gama2 = 255
+gama3 = 0
+
+
+janela = pygame.display.set_mode((900,600)) #Criar a janela
 pygame.display.set_caption("Nosso Joguinho") # Criando o nome da janela
 
 janela_aberta = True
-
-
-# #tipos de bolinha:
-# bolinhas = {"amarelo" :["255,215,0"]; 'azul' :['0,255,255']; 
-
-# }
 
 
 
@@ -43,16 +109,17 @@ while janela_aberta:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: #se apertat no botão de fechar alterar o valor do laço para falso
             janela_aberta = False
-        
+    
+    time += 1
     #comandos para movimentar a bolona
     comandos = pygame.key.get_pressed()
-    if comandos[pygame.K_UP]:
+    if comandos[pygame.K_UP] and player_y >0:
         player_y -= velocity
-    if comandos[pygame.K_DOWN]:
+    if comandos[pygame.K_DOWN] and player_y < 600:
         player_y += velocity
-    if comandos[pygame.K_LEFT]:
+    if comandos[pygame.K_LEFT] and player_x > 0:
         player_x -= velocity
-    if comandos[pygame.K_RIGHT]:
+    if comandos[pygame.K_RIGHT] and player_x <900:
         player_x += velocity
     
     #atualizar e não deibolinha_x r um "rastro"
@@ -61,26 +128,32 @@ while janela_aberta:
     #nossa bolona
     pygame.draw.circle(janela, (0,255,0), (player_x, player_y), tam_bolona) #o primeiro é o rgb (vermelho, verde, azul), o segundo é a posição e o último é o raio
     #bolinhas para pegar
-    pygame.draw.circle(janela, (255,0,0), (bolinha_x ,bolinha_y ), tam_bolinha) #o primeiro é o rgb (vermelho, verde, azul), o segundo é a posição e o último é o raio
+    pygame.draw.circle(janela, (gama1,gama2,gama3), (bolinha_x ,bolinha_y ), tam_bolinha) #o primeiro é o rgb (vermelho, verde, azul), o segundo é a posição e o último é o raio
     
     if (((bolinha_x - player_x)**2)+((bolinha_y - player_y)**2))**0.5 <= tam_bolona:
         random.seed();
-        pontuacao_valor += 10
         bolinha_x  = random.randint(100,700)
         bolinha_y  = 0
         tam_bolinha = random.randint(10,40)
-
-    
-
-
-    
-    #movimentacao bolinha
-    caimento += 1
-    if caimento == 10:
-        bolinha_y  += 10
-        caimento = 0
-    
+        velocidade_caimento +=1
+        conversao_pont(bola_da_vez)
+        nova_posicao()
+        nova_cor()
         
+    
+    if bolinha_y > 600:
+        bolinha_y = 0
+        random.seed();
+        bolinha_x  = random.randint(100,700)
+        nova_cor()
+    
+    pontuacao_valor = (10*amarelo) + (20*azul) + (-25*verde) + (vermelho*20) + (-30*branco) + (roxo*50)
+    mostrar_pontos(10,0)
+
+        
+    #movimentacao bolinha
+
+    bolinha_y  += int(velocidade_caimento//10)
     
     pygame.display.update()
 
