@@ -1,15 +1,17 @@
 import pygame
 import random
+from player import Player
 pygame.init()
 
 caimento = 0
 velocidade_caimento = 10
 
 #coordenadas da bolona verde
-player_x = 400
-player_y = 300
-tam_bolona = 40
-velocity = 25
+# player1_x = 400
+# player1_y = 300
+# tam_bolona = 40
+# velocity = 25
+player1 = Player(400, 300, 40, 25)
 
 #condição das bolinhas
 bolinha_x = 400
@@ -111,26 +113,19 @@ while janela_aberta:
             janela_aberta = False
     
     time += 1
-    #comandos para movimentar a bolona
-    comandos = pygame.key.get_pressed()
-    if comandos[pygame.K_UP] and player_y >0:
-        player_y -= velocity
-    if comandos[pygame.K_DOWN] and player_y < 600:
-        player_y += velocity
-    if comandos[pygame.K_LEFT] and player_x > 0:
-        player_x -= velocity
-    if comandos[pygame.K_RIGHT] and player_x <900:
-        player_x += velocity
+    # 
+    comando = pygame.key.get_pressed()
+    player1.mover(comando)
     
     #atualizar e não deibolinha_x r um "rastro"
     janela.fill((0,0,0))
     
     #nossa bolona
-    pygame.draw.circle(janela, (0,255,0), (player_x, player_y), tam_bolona) #o primeiro é o rgb (vermelho, verde, azul), o segundo é a posição e o último é o raio
+    pygame.draw.circle(janela, (0,255,0), (player1.pos_x, player1.pos_y), player1.tamanho) #o primeiro é o rgb (vermelho, verde, azul), o segundo é a posição e o último é o raio
     #bolinhas para pegar
     pygame.draw.circle(janela, (gama1,gama2,gama3), (bolinha_x ,bolinha_y ), tam_bolinha) #o primeiro é o rgb (vermelho, verde, azul), o segundo é a posição e o último é o raio
     
-    if (((bolinha_x - player_x)**2)+((bolinha_y - player_y)**2))**0.5 <= tam_bolona:
+    if (((bolinha_x - player1.pos_x)**2)+((bolinha_y - player1.pos_y)**2))**0.5 <= player1.tamanho:
         random.seed();
         bolinha_x  = random.randint(100,700)
         bolinha_y  = 0
