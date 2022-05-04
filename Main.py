@@ -85,7 +85,9 @@ gama3 = 0
 
 
 janela = pygame.display.set_mode((900,600)) #Criar a janela
-pygame.display.set_caption("Nosso Joguinho") # Criando o nome da janela
+pygame.display.set_caption("Abacaxiland") # Criando o nome da janela
+icon = pygame.image.load('images/logo.png')
+pygame.display.set_icon(icon)
 
 janela_aberta = True
 
