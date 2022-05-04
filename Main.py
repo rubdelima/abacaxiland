@@ -26,45 +26,29 @@ font = pygame.font.Font('freesansbold.ttf', 20)
 textX = 10
 textY = 10
 
-def mostrar_pontos(x, y):
-    pontuacao = font.render("Pontuação: " + str(pontuacao_valor), True, (255, 255, 255))
-    janela.blit(pontuacao, (x, y))
-    amarelin = font.render("Amarelo: " + str(amarelo), True, (255, 215, 0))
-    janela.blit(amarelin, ((x+170), y))
-    azulzin = font.render("Azul: " + str(azul), True, (0, 255, 255))
-    janela.blit(azulzin, ((x+300), y))
-    vermelhin = font.render("Vermelho: " + str(vermelho), True, (255, 0, 0))
-    janela.blit(vermelhin, ((x+400), y))
-    verdin = font.render("Verde: " + str(verde), True, (124, 252, 0))
-    janela.blit(verdin, ((x+530), y))
-    roxin = font.render("Roxo: " + str(roxo), True, (128, 0, 128))
-    janela.blit(roxin, ((x+640), y))
-    branquin = font.render("Branco: " + str(branco), True, (255, 255, 255))
-    janela.blit(branquin, ((x+740), y))
-    tempo = font.render("Tempo: " + str((time//30)), True, (255, 255, 255))
-    janela.blit(tempo, ((x), y+30))
+
+abacaxi = azul = vermelho = verde = roxo = branco = 0
+
+
+# Classe Ambiente sendo utilizada
+
     
 time = 0
 
 #########################################################################################
 
  #tipos de bolinha:
-listas_de_bolinhas = ['amarelo', 'azul', 'vermelho', 'verde', 'roxo', 'branco']
-bolinhas = {"amarelo" :"255,215,0", 'azul' :"0,255,255","vermelho" :"255,0,0", "verde" :"124,252,0","roxo" :"128,0,128", 'branco' :"255,255,255"}
-amarelo = 0
-azul = 0
-vermelho = 0
-verde = 0
-roxo = 0
-branco = 0
+listas_de_bolinhas = ['abacaxi', 'azul', 'vermelho', 'verde', 'roxo', 'branco']
+bolinhas = {"abacaxi" :"255,215,0", 'azul' :"0,255,255","vermelho" :"255,0,0", "verde" :"124,252,0","roxo" :"128,0,128", 'branco' :"255,255,255"}
+
 def conversao_pont(a):
-    global amarelo
+    global abacaxi
     global azul
     global vermelho
     global verde
     global roxo
     global branco
-    if a == "amarelo": amarelo += 1
+    if a == "abacaxi": abacaxi += 1
     if a == "azul": azul += 1
     if a == "vermelho": vermelho += 1
     if a == "verde": verde += 1
@@ -145,10 +129,12 @@ while janela_aberta:
         bolinha_x  = random.randint(100,700)
         nova_cor()
     
-    pontuacao_valor = (10*amarelo) + (20*azul) + (-25*verde) + (vermelho*20) + (-30*branco) + (roxo*50)
-    mostrar_pontos(10,0)
+    pontuacao_valor = (10*abacaxi) + (20*azul) + (-25*verde) + (vermelho*20) + (-30*branco) + (roxo*50)
 
-        
+    pontos = Ambiente(pontuacao_valor, 0)
+    pontos.mostrar_total(janela)
+    pontos.mostrar_pontos(janela, 'Abacaxi', (255, 255, 0), abacaxi, 40, 40)
+
     #movimentacao bolinha
 
     bolinha_y  += int(velocidade_caimento//10)
