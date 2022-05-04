@@ -1,15 +1,18 @@
 import pygame
 import random
+from player import *
+from ambiente import *
 pygame.init()
 
 caimento = 0
 velocidade_caimento = 10
 
 #coordenadas da bolona verde
-player_x = 400
-player_y = 300
-tam_bolona = 40
-velocity = 25
+# player1_x = 400
+# player1_y = 300
+# tam_bolona = 40
+# velocity = 25
+player1 = Player(400, 300, 40, 25)
 
 #condição das bolinhas
 bolinha_x = 400
@@ -23,45 +26,29 @@ font = pygame.font.Font('freesansbold.ttf', 20)
 textX = 10
 textY = 10
 
-def mostrar_pontos(x, y):
-    pontuacao = font.render("Pontuação: " + str(pontuacao_valor), True, (255, 255, 255))
-    janela.blit(pontuacao, (x, y))
-    amarelin = font.render("Amarelo: " + str(amarelo), True, (255, 215, 0))
-    janela.blit(amarelin, ((x+170), y))
-    azulzin = font.render("Azul: " + str(azul), True, (0, 255, 255))
-    janela.blit(azulzin, ((x+300), y))
-    vermelhin = font.render("Vermelho: " + str(vermelho), True, (255, 0, 0))
-    janela.blit(vermelhin, ((x+400), y))
-    verdin = font.render("Verde: " + str(verde), True, (124, 252, 0))
-    janela.blit(verdin, ((x+530), y))
-    roxin = font.render("Roxo: " + str(roxo), True, (128, 0, 128))
-    janela.blit(roxin, ((x+640), y))
-    branquin = font.render("Branco: " + str(branco), True, (255, 255, 255))
-    janela.blit(branquin, ((x+740), y))
-    tempo = font.render("Tempo: " + str((time//30)), True, (255, 255, 255))
-    janela.blit(tempo, ((x), y+30))
+
+abacaxi = azul = vermelho = verde = roxo = branco = 0
+
+
+# Classe Ambiente sendo utilizada
+
     
 time = 0
 
 #########################################################################################
 
  #tipos de bolinha:
-listas_de_bolinhas = ['amarelo', 'azul', 'vermelho', 'verde', 'roxo', 'branco']
-bolinhas = {"amarelo" :"255,215,0", 'azul' :"0,255,255","vermelho" :"255,0,0", "verde" :"124,252,0","roxo" :"128,0,128", 'branco' :"255,255,255"}
-amarelo = 0
-azul = 0
-vermelho = 0
-verde = 0
-roxo = 0
-branco = 0
+listas_de_bolinhas = ['abacaxi', 'azul', 'vermelho', 'verde', 'roxo', 'branco']
+bolinhas = {"abacaxi" :"255,215,0", 'azul' :"0,255,255","vermelho" :"255,0,0", "verde" :"124,252,0","roxo" :"128,0,128", 'branco' :"255,255,255"}
+
 def conversao_pont(a):
-    global amarelo
+    global abacaxi
     global azul
     global vermelho
     global verde
     global roxo
     global branco
-    if a == "amarelo": amarelo += 1
+    if a == "abacaxi": abacaxi += 1
     if a == "azul": azul += 1
     if a == "vermelho": vermelho += 1
     if a == "verde": verde += 1
@@ -98,7 +85,9 @@ gama3 = 0
 
 
 janela = pygame.display.set_mode((900,600)) #Criar a janela
-pygame.display.set_caption("Nosso Joguinho") # Criando o nome da janela
+pygame.display.set_caption("Abacaxiland") # Criando o nome da janela
+icon = pygame.image.load('images/logo.png')
+pygame.display.set_icon(icon)
 
 janela_aberta = True
 
@@ -111,26 +100,19 @@ while janela_aberta:
             janela_aberta = False
     
     time += 1
-    #comandos para movimentar a bolona
-    comandos = pygame.key.get_pressed()
-    if comandos[pygame.K_UP] and player_y >0:
-        player_y -= velocity
-    if comandos[pygame.K_DOWN] and player_y < 600:
-        player_y += velocity
-    if comandos[pygame.K_LEFT] and player_x > 0:
-        player_x -= velocity
-    if comandos[pygame.K_RIGHT] and player_x <900:
-        player_x += velocity
+    # 
+    comando = pygame.key.get_pressed()
+    player1.mover(comando)
     
-    #atualizar e não deibolinha_x r um "rastro"
+    #atualizar e não de bolinha_x r um "rastro"
     janela.fill((0,0,0))
     
     #nossa bolona
-    pygame.draw.circle(janela, (0,255,0), (player_x, player_y), tam_bolona) #o primeiro é o rgb (vermelho, verde, azul), o segundo é a posição e o último é o raio
+    player1.desenhar_player(janela, 'images/player1.png')
     #bolinhas para pegar
     pygame.draw.circle(janela, (gama1,gama2,gama3), (bolinha_x ,bolinha_y ), tam_bolinha) #o primeiro é o rgb (vermelho, verde, azul), o segundo é a posição e o último é o raio
     
-    if (((bolinha_x - player_x)**2)+((bolinha_y - player_y)**2))**0.5 <= tam_bolona:
+    if (((bolinha_x - player1.pos_x)**2)+((bolinha_y - player1.pos_y)**2))**0.5 <= player1.tamanho:
         random.seed();
         bolinha_x  = random.randint(100,700)
         bolinha_y  = 0
@@ -147,10 +129,12 @@ while janela_aberta:
         bolinha_x  = random.randint(100,700)
         nova_cor()
     
-    pontuacao_valor = (10*amarelo) + (20*azul) + (-25*verde) + (vermelho*20) + (-30*branco) + (roxo*50)
-    mostrar_pontos(10,0)
+    pontuacao_valor = (10*abacaxi) + (20*azul) + (-25*verde) + (vermelho*20) + (-30*branco) + (roxo*50)
 
-        
+    pontos = Ambiente(pontuacao_valor, 0)
+    pontos.mostrar_total(janela)
+    pontos.mostrar_pontos(janela, 'Abacaxi', (255, 255, 0), abacaxi, 40, 40)
+
     #movimentacao bolinha
 
     bolinha_y  += int(velocidade_caimento//10)
