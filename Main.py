@@ -1,6 +1,7 @@
 import pygame
 import random
-from player import Player
+from player import *
+from ambiente import *
 pygame.init()
 
 caimento = 0
@@ -117,11 +118,11 @@ while janela_aberta:
     comando = pygame.key.get_pressed()
     player1.mover(comando)
     
-    #atualizar e não deibolinha_x r um "rastro"
+    #atualizar e não de bolinha_x r um "rastro"
     janela.fill((0,0,0))
     
     #nossa bolona
-    pygame.draw.circle(janela, (0,255,0), (player1.pos_x, player1.pos_y), player1.tamanho) #o primeiro é o rgb (vermelho, verde, azul), o segundo é a posição e o último é o raio
+    player1.desenhar_player(janela, 'images/player1.png')
     #bolinhas para pegar
     pygame.draw.circle(janela, (gama1,gama2,gama3), (bolinha_x ,bolinha_y ), tam_bolinha) #o primeiro é o rgb (vermelho, verde, azul), o segundo é a posição e o último é o raio
     
