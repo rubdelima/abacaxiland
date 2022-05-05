@@ -13,15 +13,16 @@ class Player():
         self.comando = comando
         if self.comando[pygame.K_UP] and self.pos_y >0:
             self.pos_y -= self.velocidade
-        if self.comando[pygame.K_DOWN] and self.pos_y < 600:
+        if self.comando[pygame.K_DOWN] and self.pos_y <= 536:
             self.pos_y += self.velocidade
         if self.comando[pygame.K_LEFT] and self.pos_x > 0:
             self.pos_x -= self.velocidade
-        if self.comando[pygame.K_RIGHT] and self.pos_x <900:
+        if self.comando[pygame.K_RIGHT] and self.pos_x <= 836:
             self.pos_x += self.velocidade
     
     def desenhar_player(self, janela, playerimg):
         self.janela = janela
         self.playerimg = pygame.image.load(playerimg)
         self.janela.blit(self.playerimg, (self.pos_x, self.pos_y))
+        
 
