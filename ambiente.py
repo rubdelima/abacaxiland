@@ -1,7 +1,7 @@
 import pygame
 
 class Ambiente():
-    def __init__(self, pontuacao, vida):
+    def __init__(self, pontuacao=0, vida=0):
         self.pontuacao = pontuacao
         self.vida = vida
 

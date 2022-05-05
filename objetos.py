@@ -13,12 +13,17 @@ class Objetos():
         self.img = pygame.image.load(img)
 
     def coletar(self, janela):
-        pass
+        
     
         
 
 
-
+morango = Objetos(64, 10, 0, 'images/morango.png')
+abacaxi = Objetos(64, 5, 0, 'images/abacaxi.png')
+pitanga = Objetos(64, 7, 0, 'images/pitanga.png')
+banana = Objetos(64, 9, 0, 'images/banana.png')
+bomb = Objetos(64, 0, 0, 'images/bomb.png')
+nuclear = Objetos(256, 0, 0, 'images/nuclear-bomb.png', randint(0, 644))
 
 
 class Spawn(Objetos):
