@@ -13,7 +13,7 @@ class Objetos():
         self.img = pygame.image.load(img)
 
     def coletar(self, janela):
-        
+        pass
     
         
 
@@ -30,8 +30,9 @@ class Spawn(Objetos):
     def __init__(self, aux=0):
         self.aux = aux
         
-    def aparecer(self, janela, current_time, interval):
-        
+    def aparecer(self, janela, current_time, interval, player_x, player_y):
+        self.player_x = player_x
+        self.player_y = player_y
         self.aux += 1
         print(self.aux)
         if self.aux == 1:
@@ -57,7 +58,8 @@ class Spawn(Objetos):
             self.janela.blit(self.fruta.img, (self.fruta.pos_x, self.fruta.pos_y))
             if self.fruta.pos_y >= 568:
                 self.aux = 0
-        
+            elif  self.player_y - 32 <= self.fruta.pos_y <= self.player_y + 32 and self.player_x - 32 <= self.fruta.pos_x <= self.player_x + 32:
+                self.aux = 0    
 
     def aparecer_bomba(self):
         pass
@@ -67,7 +69,6 @@ class Spawn(Objetos):
     
 
         
-
 
 
 
