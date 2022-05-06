@@ -11,6 +11,7 @@ player1 = Player(400, 300, 40, 4)
 
 # Configurações da janela
 screen = pygame.display.set_mode((900, 600)) #Criar a screen
+background = pygame.image.load('images/background.png').convert_alpha() #Criar o blackground
 pygame.display.set_caption("Abacaxiland") # Criando o nome da screen
 icon = pygame.image.load('images/logo.png').convert_alpha()
 pygame.display.set_icon(icon)
@@ -40,7 +41,8 @@ while running:
             running = False
     
     # screen do game
-    screen.fill((133, 145, 42))
+    screen.fill((0, 0, 0))
+    screen.blit(background, (0, 0))
    
     # Movendo o personagem
     comando = pygame.key.get_pressed()
