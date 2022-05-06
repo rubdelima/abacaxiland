@@ -10,21 +10,26 @@ class Objetos():
         self.coletados = coletados
         self.pos_x = pos_x 
         self.pos_y = pos_y 
-        self.img = pygame.image.load(img)
+        self.img = pygame.image.load(img).convert_alpha()
 
     def coletar(self, janela):
         pass
 
-
 class Spawn(Objetos):
-    def __init__(self, aux=0):
+    def __init__(self, interval, aux=0):
         self.aux = aux
+        self.interval = interval
         
+<<<<<<< HEAD
     def aparecer(self, janela, current_time, interval, player_x, player_y):
+=======
+    def aparecer(self, janela, current_time, player_x, player_y):
+>>>>>>> versao_orientada
         self.player_x = player_x
         self.player_y = player_y
         self.aux += 1
-        print(self.aux)
+        self.current_time = current_time
+        
         if self.aux == 1:
             self.interval = 0
             self.tipo = randint(0, 3)
@@ -38,8 +43,6 @@ class Spawn(Objetos):
                 self.fruta = Objetos(64, 9, 0, 'images/banana.png', randint(0, 836))
 
         
-        self.current_time = current_time
-        self.interval = interval
         self.janela = janela
 
         # Aqui é onde a fruta é mostrada na tela
@@ -47,6 +50,7 @@ class Spawn(Objetos):
             self.fruta.pos_y += 1
             self.janela.blit(self.fruta.img, (self.fruta.pos_x, self.fruta.pos_y))
             if self.fruta.pos_y >= 568:
+<<<<<<< HEAD
                 self.aux = 0 
 
     def colisao(self):
@@ -55,9 +59,32 @@ class Spawn(Objetos):
             colidiu = True;
             self.aux = 0;
         return colidiu;
+=======
+                self.aux = 0
+            elif  self.player_y - 32 <= self.fruta.pos_y <= self.player_y + 32 and self.player_x - 32 <= self.fruta.pos_x <= self.player_x + 32:
+                self.aux = 0    
+                self.interval = current_time
+                
+>>>>>>> versao_orientada
 
+    def colisao(self):
+        colidiu = False
+        if self.player_y - 32 <= self.fruta.pos_y <= self.player_y + 32 and self.player_x - 32 <= self.fruta.pos_x <= self.player_x + 32:
+            colidiu = True
+            self.aux = 0
+        return colidiu
     def aparecer_bomba(self):
         pass
 
     def aparecer_nuclear(self):
         pass
+<<<<<<< HEAD
+=======
+    
+
+        
+
+
+
+
+>>>>>>> versao_orientada

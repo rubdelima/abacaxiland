@@ -11,8 +11,9 @@ player1 = Player(400, 300, 40, 4)
 
 # Configurações da janela
 screen = pygame.display.set_mode((900, 600)) #Criar a screen
+background = pygame.image.load('images/background.png').convert_alpha() #Criar o blackground
 pygame.display.set_caption("Abacaxiland") # Criando o nome da screen
-icon = pygame.image.load('images/logo.png')
+icon = pygame.image.load('images/logo.png').convert_alpha()
 pygame.display.set_icon(icon)
 
 # configurações de tempo do jogo
@@ -30,7 +31,11 @@ banana = Pontuacao_fruta('images/banana.png',(255,255,0), 0, 20, 164)
 # variável pra estabelecer o intervalo de tempo
 
 aux = 0
+<<<<<<< HEAD
 spawn_origin = Spawn()
+=======
+spawn_origin = Spawn(0)
+>>>>>>> versao_orientada
 
 running = True
 while running:
@@ -40,7 +45,8 @@ while running:
             running = False
     
     # screen do game
-    screen.fill((133, 145, 42))
+    screen.fill((0, 0, 0))
+    screen.blit(background, (0, 0))
    
     # Movendo o personagem
     comando = pygame.key.get_pressed()
@@ -55,6 +61,7 @@ while running:
         interval = current_time
 
 
+<<<<<<< HEAD
     spawn_origin.aparecer(screen, current_time, interval, player1.pos_x, player1.pos_y)
     if spawn_origin.colisao() == True:
         fruta = spawn_origin.tipo;
@@ -66,6 +73,19 @@ while running:
             pitanga.ponto += 1;
         elif fruta == 3:
             banana.ponto += 1;
+=======
+    spawn_origin.aparecer(screen, current_time, player1.pos_x, player1.pos_y)
+    if spawn_origin.colisao() == True:
+        fruta = spawn_origin.tipo
+        if fruta == 0:
+            morango.ponto += 1
+        elif fruta == 1:
+            abacaxi.ponto += 1
+        elif fruta == 2:
+            pitanga.ponto += 1
+        elif fruta == 3:
+            banana.ponto += 1
+>>>>>>> versao_orientada
 
     pontuacao_total = Total(abacaxi.ponto + pitanga.ponto + morango.ponto + banana.ponto)
     pontuacao_total.mostrar_total(screen)
@@ -79,5 +99,5 @@ while running:
 
     
     pygame.display.update()
-
+#funciona
 pygame.quit()
