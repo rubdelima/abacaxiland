@@ -79,5 +79,5 @@ while running:
 
     
     pygame.display.update()
-
+#funciona
 pygame.quit()
