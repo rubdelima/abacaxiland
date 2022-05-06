@@ -8,7 +8,7 @@ class Player():
         self.velocidade = velocidade
 
     def mover(self, comando): 
-
+        
         # Mover o player com as setas (arrows keys):
         self.comando = comando
         if self.comando[pygame.K_UP] and self.pos_y >0:

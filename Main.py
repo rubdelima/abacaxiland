@@ -30,7 +30,7 @@ banana = Pontuacao_fruta('images/banana.png',(255,255,0), 0, 20, 164)
 # variável pra estabelecer o intervalo de tempo
 
 aux = 0
-spawn_origin = Spawn()
+spawn_origin = Spawn(0)
 
 running = True
 while running:
@@ -55,7 +55,7 @@ while running:
         interval = current_time
 
 
-    spawn_origin.aparecer(screen, current_time, interval, player1.pos_x, player1.pos_y)
+    spawn_origin.aparecer(screen, current_time, player1.pos_x, player1.pos_y)
 
     pontuacao_total = Total(abacaxi.ponto + pitanga.ponto + morango.ponto + banana.ponto)
     pontuacao_total.mostrar_total(screen)

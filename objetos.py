@@ -27,14 +27,15 @@ nuclear = Objetos(256, 0, 0, 'images/nuclear-bomb.png', randint(0, 644))
 
 
 class Spawn(Objetos):
-    def __init__(self, aux=0):
+    def __init__(self, interval, aux=0):
         self.aux = aux
+        self.interval = interval
         
-    def aparecer(self, janela, current_time, interval, player_x, player_y):
+    def aparecer(self, janela, current_time, player_x, player_y):
         self.player_x = player_x
         self.player_y = player_y
         self.aux += 1
-        print(self.aux)
+        print(self.interval)
         if self.aux == 1:
             self.interval = 0
             self.tipo = randint(0, 3)
@@ -49,7 +50,6 @@ class Spawn(Objetos):
 
         
         self.current_time = current_time
-        self.interval = interval
         self.janela = janela
 
         # Aqui é onde a fruta é mostrada na tela
@@ -60,6 +60,8 @@ class Spawn(Objetos):
                 self.aux = 0
             elif  self.player_y - 32 <= self.fruta.pos_y <= self.player_y + 32 and self.player_x - 32 <= self.fruta.pos_x <= self.player_x + 32:
                 self.aux = 0    
+                self.interval = current_time
+                print(self.interval)
 
     def aparecer_bomba(self):
         pass
