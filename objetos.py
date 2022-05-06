@@ -26,9 +26,6 @@ class Spawn(Objetos):
         self.player_y = player_y
         self.aux += 1
         self.current_time = current_time
-        if self.aux > 1:   
-            print(self.current_time - self.aux1)
-        self.aux1 = self.current_time
         
         if self.aux == 1:
             self.interval = 0
@@ -54,7 +51,7 @@ class Spawn(Objetos):
             elif  self.player_y - 32 <= self.fruta.pos_y <= self.player_y + 32 and self.player_x - 32 <= self.fruta.pos_x <= self.player_x + 32:
                 self.aux = 0    
                 self.interval = current_time
-                print(self.interval)
+                
 
     def colisao(self):
         colidiu = False
