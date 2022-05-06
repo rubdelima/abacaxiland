@@ -56,7 +56,17 @@ while running:
 
 
     spawn_origin.aparecer(screen, current_time, interval, player1.pos_x, player1.pos_y)
-
+    if spawn_origin.colisao() == True:
+        fruta = spawn_origin.tipo;
+        if fruta == 0:
+            morango.ponto += 1;
+        elif fruta == 1:
+            abacaxi.ponto += 1;
+        elif fruta == 2:
+            pitanga.ponto += 1;
+        elif fruta == 3:
+            banana.ponto += 1;
+    
     pontuacao_total = Total(abacaxi.ponto + pitanga.ponto + morango.ponto + banana.ponto)
     pontuacao_total.mostrar_total(screen)
     # área da pontuação
