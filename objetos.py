@@ -14,16 +14,6 @@ class Objetos():
 
     def coletar(self, janela):
         pass
-    
-        
-
-
-morango = Objetos(64, 10, 0, 'images/morango.png')
-abacaxi = Objetos(64, 5, 0, 'images/abacaxi.png')
-pitanga = Objetos(64, 7, 0, 'images/pitanga.png')
-banana = Objetos(64, 9, 0, 'images/banana.png')
-bomb = Objetos(64, 0, 0, 'images/bomb.png')
-nuclear = Objetos(256, 0, 0, 'images/nuclear-bomb.png', randint(0, 644))
 
 
 class Spawn(Objetos):
@@ -63,6 +53,12 @@ class Spawn(Objetos):
                 self.interval = current_time
                 print(self.interval)
 
+    def colisao(self):
+        colidiu = False
+        if self.player_y - 32 <= self.fruta.pos_y <= self.player_y + 32 and self.player_x - 32 <= self.fruta.pos_x <= self.player_x + 32:
+            colidiu = True
+            self.aux = 0
+        return colidiu
     def aparecer_bomba(self):
         pass
 
