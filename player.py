@@ -22,7 +22,7 @@ class Player():
     
     def desenhar_player(self, janela, playerimg):
         self.janela = janela
-        self.playerimg = pygame.image.load(playerimg)
+        self.playerimg = pygame.image.load(playerimg).convert_alpha()
         self.janela.blit(self.playerimg, (self.pos_x, self.pos_y))
         
 

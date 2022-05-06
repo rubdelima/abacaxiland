@@ -10,7 +10,7 @@ class Objetos():
         self.coletados = coletados
         self.pos_x = pos_x 
         self.pos_y = pos_y 
-        self.img = pygame.image.load(img)
+        self.img = pygame.image.load(img).convert_alpha()
 
     def coletar(self, janela):
         pass
@@ -25,7 +25,11 @@ class Spawn(Objetos):
         self.player_x = player_x
         self.player_y = player_y
         self.aux += 1
-        print(self.interval)
+        self.current_time = current_time
+        if self.aux > 1:   
+            print(self.current_time - self.aux1)
+        self.aux1 = self.current_time
+        
         if self.aux == 1:
             self.interval = 0
             self.tipo = randint(0, 3)
@@ -39,7 +43,6 @@ class Spawn(Objetos):
                 self.fruta = Objetos(64, 9, 0, 'images/banana.png', randint(0, 836))
 
         
-        self.current_time = current_time
         self.janela = janela
 
         # Aqui é onde a fruta é mostrada na tela
