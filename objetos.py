@@ -20,11 +20,7 @@ class Spawn(Objetos):
         self.aux = aux
         self.interval = interval
         
-<<<<<<< HEAD
-    def aparecer(self, janela, current_time, interval, player_x, player_y):
-=======
     def aparecer(self, janela, current_time, player_x, player_y):
->>>>>>> versao_orientada
         self.player_x = player_x
         self.player_y = player_y
         self.aux += 1
@@ -34,13 +30,13 @@ class Spawn(Objetos):
             self.interval = 0
             self.tipo = randint(0, 3)
             if self.tipo == 0:
-                self.fruta =  Objetos(64, 10, 0, 'images/morango.png', randint(0, 836))
+                self.fruta =  Objetos(64, 10, 0, 'images/morango64.png', randint(0, 836))
             elif self.tipo == 1:
-                self.fruta = Objetos(64, 5, 0, 'images/abacaxi.png', randint(0, 836))
+                self.fruta = Objetos(64, 5, 0, 'images/abacaxi64.png', randint(0, 836))
             elif self.tipo == 2:
-                self.fruta = Objetos(64, 7, 0, 'images/pitanga.png', randint(0, 836))
+                self.fruta = Objetos(64, 7, 0, 'images/pitanga64.png', randint(0, 836))
             elif self.tipo == 3:
-                self.fruta = Objetos(64, 9, 0, 'images/banana.png', randint(0, 836))
+                self.fruta = Objetos(64, 9, 0, 'images/banana64.png', randint(0, 836))
 
         
         self.janela = janela
@@ -50,22 +46,11 @@ class Spawn(Objetos):
             self.fruta.pos_y += 1
             self.janela.blit(self.fruta.img, (self.fruta.pos_x, self.fruta.pos_y))
             if self.fruta.pos_y >= 568:
-<<<<<<< HEAD
-                self.aux = 0 
-
-    def colisao(self):
-        colidiu = False;
-        if self.player_y - 32 <= self.fruta.pos_y <= self.player_y + 32 and self.player_x - 32 <= self.fruta.pos_x <= self.player_x + 32:
-            colidiu = True;
-            self.aux = 0;
-        return colidiu;
-=======
                 self.aux = 0
             elif  self.player_y - 32 <= self.fruta.pos_y <= self.player_y + 32 and self.player_x - 32 <= self.fruta.pos_x <= self.player_x + 32:
                 self.aux = 0    
                 self.interval = current_time
                 
->>>>>>> versao_orientada
 
     def colisao(self):
         colidiu = False
@@ -78,8 +63,6 @@ class Spawn(Objetos):
 
     def aparecer_nuclear(self):
         pass
-<<<<<<< HEAD
-=======
     
 
         
@@ -87,4 +70,3 @@ class Spawn(Objetos):
 
 
 
->>>>>>> versao_orientada
