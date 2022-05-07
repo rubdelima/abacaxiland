@@ -32,8 +32,8 @@ banana = Pontuacao_fruta('images/banana.png',(255,255,0), 0, 20, 164)
 # variável pra estabelecer o intervalo de tempo
 
 aux = 0
-caindo = [];
-nivel = 1;
+caindo = []
+nivel = 1
 running = True
 while running:
     aux += 1
