@@ -4,14 +4,14 @@ from player import *
 
 class Objetos():
 
-    def __init__(self, tamanho, valor, coletados, img, pos_x=randint(0,836), pos_y=0):
+    def __init__(self, tamanho, valor, img, pos_x=randint(0,836), pos_y=0, aux = 0):
         self.tamanho = tamanho
         self.valor = valor
-        self.coletados = coletados
         self.pos_x = pos_x 
         self.pos_y = pos_y 
         self.img = pygame.image.load(img).convert_alpha()
 
+<<<<<<< HEAD
     def coletar(self, janela):
         pass
 
@@ -70,4 +70,16 @@ class Spawn(Objetos):
 
 
 
+=======
+    def cair(self, janela, velocidade):
+        self.pos_y += velocidade
+        janela.blit(self.img, (self.pos_x, self.pos_y))
+>>>>>>> refs/remotes/origin/versao_orientada
 
+    def colisao(self, player_x, player_y):
+        valor = -1;
+        if player_y - 32 <= self.pos_y <= player_y + 32 and player_x - 32 <= self.pos_x <= player_x + 32:
+            valor = self.valor;
+        if self.pos_y >= 568:
+            valor = 0;
+        return valor

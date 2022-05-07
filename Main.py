@@ -1,3 +1,4 @@
+from difflib import Match
 import pygame
 import random
 from player import *
@@ -31,8 +32,8 @@ banana = Pontuacao_fruta('images/banana.png',(255,255,0), 0, 20, 164)
 # variável pra estabelecer o intervalo de tempo
 
 aux = 0
-spawn_origin = Spawn(0)
-
+caindo = [];
+nivel = 1;
 running = True
 while running:
     aux += 1
@@ -56,20 +57,33 @@ while running:
     if aux == 1:
         interval = current_time
 
+    #pegando a diferença de objetos mostrado para serem adicionados de acordo com o nivel
+    diff = abs(len(caindo) - nivel);
+    if(diff != 0):
+        objetos = [Objetos(64, 10, 'images/morango.png', randint(0, 836)),Objetos(64, 5, 'images/abacaxi.png', randint(0, 836)),Objetos(64, 7, 'images/pitanga.png', randint(0, 836)),Objetos(64, 9, 'images/banana.png', randint(0, 836))]
+        for i in range(diff):
+            caindo.append(objetos[randint(0,3)]);
+    if(len(caindo) > 0):
+        for obj in caindo:
+            obj.cair(screen,nivel);
+            valor = obj.colisao(player1.pos_x, player1.pos_y);
+            if(valor >= 0):
+                if valor == 10:
+                    morango.ponto += 1;
+                elif valor == 5:
+                    abacaxi.ponto += 1;
+                elif valor == 7:
+                    pitanga.ponto += 1;
+                elif valor == 9:
+                    banana.ponto += 1;
+                caindo.remove(obj);
 
-    spawn_origin.aparecer(screen, current_time, player1.pos_x, player1.pos_y)
-    if spawn_origin.colisao() == True:
-        fruta = spawn_origin.tipo
-        if fruta == 0:
-            morango.ponto += 1
-        elif fruta == 1:
-            abacaxi.ponto += 1
-        elif fruta == 2:
-            pitanga.ponto += 1
-        elif fruta == 3:
-            banana.ponto += 1
-
-    pontuacao_total = Total(abacaxi.ponto + pitanga.ponto + morango.ponto + banana.ponto)
+    total = (abacaxi.ponto*5) + (pitanga.ponto*7) + (morango.ponto*10) + (banana.ponto*9);
+    if(total >= 100 and total < 200):
+        nivel = 2;
+    elif(total >= 200):
+        nivel = 3;
+    pontuacao_total = Total(total)
     pontuacao_total.mostrar_total(screen)
     # área da pontuação
     
