@@ -19,6 +19,9 @@ class Objetos():
         valor = -1;
         if player_y - 32 <= self.pos_y <= player_y + 32 and player_x - 32 <= self.pos_x <= player_x + 32:
             valor = self.valor;
+            # Efeito sonoro da coleta de frutas
+            musica_coleta = pygame.mixer.Sound('music/coletar.wav')
+            musica_coleta.play()
         if self.pos_y >= 568:
             valor = 0;
         return valor
