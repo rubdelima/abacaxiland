@@ -45,38 +45,6 @@ menu = True
 fonte = pygame.font.Font('fonte/Fresh Fruit.ttf', 70)
 titulo = fonte.render(f'ABACAXILAND', True, (0, 204, 0))
 
-# Criando os botões do menu
-class Botao:
-    def __init__(self, x, y, image):
-        self.image = image
-        self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
-        self.clique = False
-        
-    def desenhar_botao(self):
-        acao = False
-        
-        # Pegar posição do mouse
-        pos = pygame.mouse.get_pos()
-        
-        # Checar ações do mouse
-        if self.rect.collidepoint(pos):
-            if pygame.mouse.get_pressed()[0] == 1 and self.clique == False:
-                acao = True
-                self.clique = True
-                # Efeito sonoro de clicar no botão de start
-                musica_coleta = pygame.mixer.Sound('music/menu_clique.wav')
-                musica_coleta.play()
-        
-        if pygame.mouse.get_pressed()[0] == 0:
-            self.clique = False
-            
-        # Desenhar botão
-        screen.blit(self.image, self.rect)
-        
-        return acao
-
 # Criar botões
 botao_start = Botao(370, 300, botao_start_img)
 botao_exit = Botao(370, 400, botao_exit_img) 
@@ -99,9 +67,9 @@ while running:
         # Nome do jogo
         screen.blit(titulo, (235, 150))
         
-        if botao_exit.desenhar_botao():
+        if botao_exit.desenhar_botao(screen):
             running = False
-        if botao_start.desenhar_botao():
+        if botao_start.desenhar_botao(screen):
             menu = False
     else:
         # Movendo o personagem
