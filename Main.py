@@ -17,6 +17,11 @@ pygame.display.set_caption("Abacaxiland") # Criando o nome da screen
 icon = pygame.image.load('images/logo.png').convert_alpha()
 pygame.display.set_icon(icon)
 
+# Musica de background
+pygame.mixer.init()
+pygame.mixer.music.load('music/background_music.wav')
+pygame.mixer.music.play(-1)
+
 # configurações de tempo do jogo
 current_time = 0
 interval = 0
