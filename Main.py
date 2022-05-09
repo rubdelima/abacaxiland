@@ -16,6 +16,11 @@ pygame.display.set_caption("Abacaxiland") # Criando o nome da screen
 icon = pygame.image.load('images/logo32.png').convert_alpha()
 pygame.display.set_icon(icon)
 
+# Musica de background
+pygame.mixer.init()
+pygame.mixer.music.load('music/background_music.wav')
+pygame.mixer.music.play(-1)
+
 # configurações de tempo do jogo
 current_time = 0
 interval = 0
@@ -59,6 +64,11 @@ while running:
 
     spawn_origin.aparecer(screen, current_time, player1.pos_x, player1.pos_y)
     if spawn_origin.colisao() == True:
+        
+        # Efeito sonoro da coleta de frutas
+        musica_coleta = pygame.mixer.Sound('music/coletar.wav')
+        musica_coleta.play()
+        
         fruta = spawn_origin.tipo
         if fruta == 0:
             morango.ponto += 1
