@@ -40,3 +40,36 @@ class Pontuacao_fruta():
 
         def coletar(self):  
             pass
+        
+# Criando os botões do menu
+class Botao:
+    def __init__(self, x, y, image):
+        self.image = image
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.clique = False
+        
+    def desenhar_botao(self, janela):
+        self.janela = janela
+        acao = False
+        
+        # Pegar posição do mouse
+        pos = pygame.mouse.get_pos()
+        
+        # Checar ações do mouse
+        if self.rect.collidepoint(pos):
+            if pygame.mouse.get_pressed()[0] == 1 and self.clique == False:
+                acao = True
+                self.clique = True
+                # Efeito sonoro de clicar no botão de start
+                musica_coleta = pygame.mixer.Sound('music/menu_clique.wav')
+                musica_coleta.play()
+        
+        if pygame.mouse.get_pressed()[0] == 0:
+            self.clique = False
+            
+        # Desenhar botão
+        self.janela.blit(self.image, self.rect)
+        
+        return acao
