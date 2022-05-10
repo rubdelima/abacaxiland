@@ -1,6 +1,4 @@
-from difflib import Match
 import pygame
-import random
 from player import *
 from ambiente import *
 from objetos import *
@@ -36,9 +34,6 @@ abacaxi = Pontuacao_fruta('images/abacaxi.png',(255,255,0), 0, 20, 88)
 pitanga = Pontuacao_fruta('images/pitanga.png',(255,100,100), 0, 20, 126)
 banana = Pontuacao_fruta('images/banana.png',(255,255,0), 0, 20, 164)
 
-# bomb = Pontuacao_fruta('images/bomb.png', 0)
-# nuclear = Pontuacao_fruta('images/nuclear-bomb.png', randint(0, 644))
-# variável pra estabelecer o intervalo de tempo
 
 # Criando menu
 menu = True
@@ -108,12 +103,14 @@ while running:
 
         total = (abacaxi.ponto*5) + (pitanga.ponto*7) + (morango.ponto*10) + (banana.ponto*9);
         if(total >= 100 and total < 200):
-            nivel = 2;
+            nivel = 2
         elif(total >= 200):
-            nivel = 3;
+            nivel = 3
+
+
+        # área da pontuação
         pontuacao_total = Total(total)
         pontuacao_total.mostrar_total(screen)
-        # área da pontuação
         
         abacaxi.mostrar_pontos(screen)
         pitanga.mostrar_pontos(screen)
@@ -123,5 +120,5 @@ while running:
 
     
     pygame.display.update()
-#funciona
+
 pygame.quit()
