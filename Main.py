@@ -114,9 +114,9 @@ while running:
                     total += obj.valor
                     caindo.remove(obj)
 
-        if(total >= 100 and total < 200):
+        if(total >= 50 and total < 100):
             nivel = 2
-        elif(total >= 200):
+        elif(total >= 100):
             nivel = 3
 
 
