@@ -93,14 +93,14 @@ while running:
         #pegando a diferença de objetos mostrado para serem adicionados de acordo com o nivel
         diff = abs(len(caindo) - nivel);
         if(diff != 0):
-            objetos = [Objetos(64, 10, 'images/morango64.png', randint(0, 836)),Objetos(64, 5, 'images/abacaxi64.png', randint(0, 836)),Objetos(64, 7, 'images/pitanga64.png', randint(0, 836)),Objetos(64, 9, 'images/banana64.png', randint(0, 836))]
+            objetos = [Objetos(64, 10, 'images/morango64.png', randint(0, 836)),Objetos(64, 5, 'images/abacaxi64.png', randint(0, 836)),Objetos(64, 7, 'images/pitanga64.png', randint(0, 836)),Objetos(64, 9, 'images/banana64.png', randint(0, 836)),Objetos(64, -10, 'images/bomb64.png', randint(0, 836))]
             for i in range(diff):
-                caindo.append(objetos[randint(0,3)]);
+                caindo.append(objetos[randint(0,4)]);
         if(len(caindo) > 0):
             for obj in caindo:
                 obj.cair(screen,nivel);
                 valor = obj.colisao(player1.pos_x, player1.pos_y);
-                if(valor >= 0):
+                if(valor != -1):
                     if valor == 10:
                         morango.ponto += 1;
                     elif valor == 5:
@@ -109,9 +109,9 @@ while running:
                         pitanga.ponto += 1;
                     elif valor == 9:
                         banana.ponto += 1;
+                    total += obj.valor;
                     caindo.remove(obj);
 
-        total = (abacaxi.ponto*5) + (pitanga.ponto*7) + (morango.ponto*10) + (banana.ponto*9);
         if(total >= 100 and total < 200):
             nivel = 2
         elif(total >= 200):
