@@ -111,7 +111,8 @@ while running:
                         pitanga.ponto += 1
                     elif valor == 9:
                         banana.ponto += 1
-                    total += obj.valor
+                    if valor != 0:
+                        total += obj.valor
                     caindo.remove(obj)
 
         if(total >= 50 and total < 100):
