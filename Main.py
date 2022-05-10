@@ -28,6 +28,12 @@ pygame.mixer.music.play(-1)
 current_time = 0
 interval = 0
 
+#Criando o Timer
+clock = pygame.time.Clock()
+counter, text = 60, '60'.rjust(3)
+pygame.time.set_timer(pygame.USEREVENT, 1000)
+font3 = pygame.font.SysFont('Consolas', 30)
+
 # variáveis da pontuação das frutas
 morango = Pontuacao_fruta('images/morango.png', (255,0,0), 0, 20, 50)
 abacaxi = Pontuacao_fruta('images/abacaxi.png',(255,255,0), 0, 20, 88)
@@ -116,6 +122,11 @@ while running:
         pitanga.mostrar_pontos(screen)
         morango.mostrar_pontos(screen)
         banana.mostrar_pontos(screen)
+        
+        #timer
+        screen.blit(font3.render(text, True, (255, 255, 255)), (700,10 ))
+        pygame.display.flip()
+        clock.tick(60)
     
 
     
