@@ -6,7 +6,7 @@ from objetos import *
 
 pygame.init()
 # Criando nosso player
-player1 = Player(400, 300, 40, 4)
+player1 = Player(400, 500, 40, 4, False, False)
 
 
 # Configurações da janela
@@ -52,6 +52,7 @@ while running:
     # Movendo o personagem
     comando = pygame.key.get_pressed()
     player1.mover(comando)
+    player1.pular()
 
     # desenho a posição do player na tela
     player1.desenhar_player(screen, 'images/player1.png')
