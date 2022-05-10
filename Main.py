@@ -87,7 +87,7 @@ while running:
         #pegando a diferença de objetos mostrado para serem adicionados de acordo com o nivel
         diff = abs(len(caindo) - nivel);
         if(diff != 0):
-            objetos = [Objetos(64, 10, 'images/morango.png', randint(0, 836)),Objetos(64, 5, 'images/abacaxi.png', randint(0, 836)),Objetos(64, 7, 'images/pitanga.png', randint(0, 836)),Objetos(64, 9, 'images/banana.png', randint(0, 836))]
+            objetos = [Objetos(64, 10, 'images/morango64.png', randint(0, 836)),Objetos(64, 5, 'images/abacaxi64.png', randint(0, 836)),Objetos(64, 7, 'images/pitanga64.png', randint(0, 836)),Objetos(64, 9, 'images/banana64.png', randint(0, 836))]
             for i in range(diff):
                 caindo.append(objetos[randint(0,3)]);
         if(len(caindo) > 0):
