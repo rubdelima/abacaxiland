@@ -23,3 +23,5 @@ Link da imagem do abacaxi: https://www.flaticon.com/free-icon/pineapple_898142
 Link da imagem da pitanga: https://www.flaticon.com/free-icon/suriname-cherry_6136097
 
 Link da imagem do player: https://www.flaticon.com/free-icon/inventory_7419943?term=game%20inventory&page=1&position=39&page=1&position=39&related_id=7419943&origin=search
+
+Link da imagem do background: https://br.freepik.com/vetores-gratis/paisagem-de-selva-com-ilustracao-de-arvores-e-plantas_3297754.htm#page=2&query=background%20plants&position=1&from_view=search
