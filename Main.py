@@ -75,6 +75,7 @@ while running:
         # Movendo o personagem
         comando = pygame.key.get_pressed()
         player1.mover(comando)
+        player1.pular()
 
         # desenho a posição do player na tela
         player1.desenhar_player(screen, 'images/player1.png')
