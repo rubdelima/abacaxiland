@@ -16,7 +16,7 @@ font3 = pygame.font.SysFont('Consolas', 30)
 
 # Configurações da janela
 screen = pygame.display.set_mode((900, 600)) #Criar a screen
-background = pygame.image.load('images/background.png').convert_alpha() #Criar o blackground
+background = pygame.image.load('images/background.png').convert_alpha() #Criar o background
 pygame.display.set_caption("Abacaxiland") # Criando o nome da screen
 icon = pygame.image.load('images/logo32.png').convert_alpha()
 pygame.display.set_icon(icon)
