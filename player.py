@@ -1,11 +1,13 @@
 import pygame
 
 class Player():
-    def __init__(self, pos_x, pos_y, tamanho, velocidade):
+    def __init__(self, pos_x, pos_y, tamanho, velocidade, pulo_up,pulo_down):
         self.pos_x = pos_x
         self.pos_y = pos_y
         self.tamanho = tamanho
         self.velocidade = velocidade
+        self.pulo_up = pulo_up
+        self.pulo_down = pulo_down
 
     def mover(self, comando):
         # Mover o player com as setas (arrows keys):
