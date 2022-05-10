@@ -34,6 +34,10 @@ counter, text = 60, '60'.rjust(3)
 pygame.time.set_timer(pygame.USEREVENT, 1000)
 font3 = pygame.font.SysFont('Consolas', 30)
 
+# Texto "Tempo"
+texto = pygame.font.Font('freesansbold.ttf', 25)
+texto_tempo = texto.render(f'Tempo:', True, (255, 255, 255))
+
 # variáveis da pontuação das frutas
 morango = Pontuacao_fruta('images/morango.png', (255,0,0), 0, 20, 50)
 abacaxi = Pontuacao_fruta('images/abacaxi.png',(255,255,0), 0, 20, 88)
@@ -124,7 +128,8 @@ while running:
         banana.mostrar_pontos(screen)
         
         #timer
-        screen.blit(font3.render(text, True, (255, 255, 255)), (700,10 ))
+        screen.blit(texto_tempo, (750, 10))
+        screen.blit(font3.render(text, True, (255, 255, 255)), (840,10))
         pygame.display.flip()
         clock.tick(60)
     
