@@ -7,7 +7,7 @@ from objetos import *
 
 pygame.init()
 # Criando nosso player
-player1 = Player(400, 300, 40, 4)
+player1 = Player(400, 500, 40, 4, False, False)
 
 
 # Configurações da janela
