@@ -10,12 +10,7 @@ class Total():
         self.janela = janela
         fonte = pygame.font.Font('freesansbold.ttf', 20)
         aux = fonte.render(f'Pontuacao: '+ str(self.pontuacao), True, (255, 255, 255))
-        janela.blit(aux, (10, 10))
-
-    
-class Vida():
-    def mostrar_vida(sef):
-        pass   
+        janela.blit(aux, (10, 10))  
 
 
 class Pontuacao_fruta():
@@ -38,8 +33,6 @@ class Pontuacao_fruta():
             self.janela.blit(self.img, (self.pos_x, self.pos_y))
             self.janela.blit(aux, (self.pos_x+38, self.pos_y+10))
 
-        def coletar(self):  
-            pass
         
 # Criando os botões do menu
 class Botao:
