@@ -21,3 +21,5 @@ Link do abacaxi no logo: https://www.flaticon.com/premium-icon/pineapple_3151121
 Link da imagem do abacaxi: https://www.flaticon.com/free-icon/pineapple_898142
 
 Link da imagem da pitanga: https://www.flaticon.com/free-icon/suriname-cherry_6136097
+
+Link da imagem do player: https://www.flaticon.com/free-icon/inventory_7419943?term=game%20inventory&page=1&position=39&page=1&position=39&related_id=7419943&origin=search
