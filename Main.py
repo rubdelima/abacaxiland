@@ -8,6 +8,11 @@ pygame.init()
 # Criando nosso player
 player1 = Player(400, 500, 40, 4, False, False)
 
+#Criando o Timer
+clock = pygame.time.Clock()
+counter, text = 60, '60'.rjust(3)
+pygame.time.set_timer(pygame.USEREVENT, 1000)
+font3 = pygame.font.SysFont('Consolas', 30)
 
 # Configurações da janela
 screen = pygame.display.set_mode((900, 600)) #Criar a screen
@@ -42,8 +47,11 @@ running = True
 while running:
     aux += 1
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: 
+        if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.USEREVENT: 
+            counter -= 1
+            text = "Tempo restante: " + str(counter).rjust(3) 
     
     # screen do game
     screen.fill((0, 0, 0))
@@ -88,6 +96,11 @@ while running:
     pitanga.mostrar_pontos(screen)
     morango.mostrar_pontos(screen)
     banana.mostrar_pontos(screen)
+    
+    #timer
+    screen.blit(font3.render(text, True, (255, 255, 255)), (700,10 ))
+    pygame.display.flip()
+    clock.tick(60)
     
 
     
