@@ -7,18 +7,29 @@ class Player():
         self.tamanho = tamanho
         self.velocidade = velocidade
 
-    def mover(self, comando): 
-        
+    def mover(self, comando):
         # Mover o player com as setas (arrows keys):
         self.comando = comando
-        if self.comando[pygame.K_UP] and self.pos_y >0:
-            self.pos_y -= self.velocidade
-        if self.comando[pygame.K_DOWN] and self.pos_y <= 536:
-            self.pos_y += self.velocidade
+        if self.comando[pygame.K_UP] and self.pulo_up == False and self.pulo_down == False:
+            self.pulo_up = True
         if self.comando[pygame.K_LEFT] and self.pos_x > 0:
             self.pos_x -= self.velocidade
         if self.comando[pygame.K_RIGHT] and self.pos_x <= 836:
             self.pos_x += self.velocidade
+         
+    def pular(self):
+ 
+        if self.pulo_up:
+            self.pos_y -= self.velocidade
+        if self.pos_y <= 350:
+            self.pulo_up = False
+            self.pulo_down = True
+            
+        if self.pulo_down:
+            self.pos_y += self.velocidade
+        if self.pos_y >= 500:
+            self.pulo_down = False
+
     
     def desenhar_player(self, janela, playerimg):
         self.janela = janela
