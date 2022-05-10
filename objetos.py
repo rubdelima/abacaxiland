@@ -12,19 +12,19 @@ class Objetos():
         self.img = pygame.image.load(img).convert_alpha()
 
     def cair(self, janela, velocidade):
-        self.pos_y += velocidade/2
+        self.pos_y += velocidade
         janela.blit(self.img, (self.pos_x, self.pos_y))
 
     def colisao(self, player_x, player_y):
-        valor = -1;
+        valor = -1
         if player_y - 32 <= self.pos_y <= player_y + 32 and player_x - 32 <= self.pos_x <= player_x + 32:
-            valor = self.valor;
+            valor = self.valor
             # Efeito sonoro da coleta de frutas
-             if(valor > 0):
+            if(valor > 0):
                 musica_coleta = pygame.mixer.Sound('music/coletar.wav')
             elif(valor < 0):
-                musica_coleta = pygame.mixer.Sound('music/coletar.wav')
+                musica_coleta = pygame.mixer.Sound('music/explodir.wav')
             musica_coleta.play()
         if self.pos_y >= 568:
-            valor = 0;
+            valor = 0
         return valor
