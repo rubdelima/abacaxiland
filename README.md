@@ -14,6 +14,15 @@ Rubens Lima (rnl2).
 
 https://github.com/rubdelima/projetoIP
 
+
+# Como funciona?
+
+Bem vindo à Abacaxiland, você tem 1 minuto para colotar as frutas que vão caindo, mas tenha cuidado, nessa ilha houve ha muito tempo uma guerra que deixou bombas perigosas no seu caminho, esas bombas vão vazer você perder o seu precioso tempo e perderá 10 pontos. As frutas e suas pontuações respectivas são: Abacaxi, a mais deliciosa fruta da ilha lhe dá 10 pontos, a bela pitango lhe dará 9 pontos, e as bananas dão 7 pontos. Consiga pontuar mais e fazer uma deliciosa salada de frutas.
+
+# Requerimentos do jogo e como instalar
+
+Para rodar o jogo é necessário ter instalado na máquina o python, onde pode ser obtido de form oficial no site: https://www.python.org/, ou em bibliotecas próprias do seu Sistema Operacional, para Linux basta digitar no terminal "sudo apt install python3". A pós o Python instalado, você irá precisar instaar o pygame. Para instalar o pygame em SO que possuem bash (como MacOS e Linux) você ira digitar o comando no terminal com "pip3 install pygame", e no windowns você entrará no cmd e digitar "python3 -m pip install pygame", clonar este repositório e colocar para executar no arquivo main.py
+
 # A organização do código
 
 O código foi dividido em 4 arquivos, no qual no arquivo principal (Main.py) importamos as bibliotecas utilizadas e realizamos as configurações do jogo como um todo (criação da tela, player, variáveis, background, etc.), essas associadas ao código do ambiente, jogador e objetos do jogo, o qual dividimos em outros 3 arquivos (ambiente.py, objetos.py e player.py). Também registramos todas as referências de imagens, além de organizá-las em pastas separadas das fontes e músicas/efeitos sonoros utilizados no projeto.
