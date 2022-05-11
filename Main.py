@@ -12,7 +12,7 @@ player1 = Player(400, 500, 40, 4, False, False)
 clock = pygame.time.Clock()
 counter, text = 60, '60'.rjust(3)
 pygame.time.set_timer(pygame.USEREVENT, 1000)
-font3 = pygame.font.SysFont('Consolas', 30)
+font3 = pygame.font.SysFont('Consolas', 18)
 
 # Configurações da janela
 screen = pygame.display.set_mode((900, 600)) #Criar a screen
