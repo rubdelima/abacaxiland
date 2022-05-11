@@ -10,12 +10,7 @@ class Total():
         self.janela = janela
         fonte = pygame.font.Font('freesansbold.ttf', 20)
         aux = fonte.render(f'Pontuacao: '+ str(self.pontuacao), True, (255, 255, 255))
-        janela.blit(aux, (10, 10))
-
-    
-class Vida():
-    def mostrar_vida(sef):
-        pass   
+        janela.blit(aux, (10, 10))  
 
 
 class Pontuacao_fruta():
@@ -38,5 +33,36 @@ class Pontuacao_fruta():
             self.janela.blit(self.img, (self.pos_x, self.pos_y))
             self.janela.blit(aux, (self.pos_x+38, self.pos_y+10))
 
-        def coletar(self):  
-            pass
+        
+# Criando os botões do menu
+class Botao:
+    def __init__(self, x, y, image):
+        self.image = image
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.clique = False
+        
+    def desenhar_botao(self, janela):
+        self.janela = janela
+        acao = False
+        
+        # Pegar posição do mouse
+        pos = pygame.mouse.get_pos()
+        
+        # Checar ações do mouse
+        if self.rect.collidepoint(pos):
+            if pygame.mouse.get_pressed()[0] == 1 and self.clique == False:
+                acao = True
+                self.clique = True
+                # Efeito sonoro de clicar no botão de start
+                musica_coleta = pygame.mixer.Sound('music/menu_clique.wav')
+                musica_coleta.play()
+        
+        if pygame.mouse.get_pressed()[0] == 0:
+            self.clique = False
+            
+        # Desenhar botão
+        self.janela.blit(self.image, self.rect)
+        
+        return acao
