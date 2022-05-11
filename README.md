@@ -1,9 +1,8 @@
 # projetoIP - Equipe 5
 
-# Título do projeto e membros da equipe
+# Abacaxiland
 
-Abacaxiland
-
+##Membros:
 Iasmym Mendes (ilmf);
 Nathaniel Rocha (nrs3);
 Pedro Baptista (phab);
