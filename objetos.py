@@ -12,7 +12,7 @@ class Objetos():
         self.img = pygame.image.load(img).convert_alpha()
 
     def cair(self, janela, velocidade):
-        self.pos_y += velocidade
+        self.pos_y += velocidade + 5
         janela.blit(self.img, (self.pos_x, self.pos_y))
 
     def colisao(self, player_x, player_y):

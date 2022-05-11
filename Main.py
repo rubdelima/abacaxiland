@@ -5,7 +5,7 @@ from objetos import *
 
 pygame.init()
 # Criando nosso player
-player1 = Player(400, 500, 40, 4, False, False)
+player1 = Player(400, 500, 40, 10, False, False)
 
 
 # Configurações da janela
@@ -112,7 +112,7 @@ while running:
             #pegando a diferença de objetos mostrado para serem adicionados de acordo com o nivel
             diff = abs(len(caindo) - nivel)
             if(diff != 0):
-                objetos = [Objetos(64, 10, 'images/morango64.png', randint(0, 836)),Objetos(64, 5, 'images/abacaxi64.png', randint(0, 836)),Objetos(64, 7, 'images/pitanga64.png', randint(0, 836)),Objetos(64, 9, 'images/banana64.png', randint(0, 836)),Objetos(64, -10, 'images/bomb64.png', randint(0, 836))]
+                objetos = [Objetos(64, 5, 'images/morango64.png', randint(0, 836)),Objetos(64, 10, 'images/abacaxi64.png', randint(0, 836)),Objetos(64, 9, 'images/pitanga64.png', randint(0, 836)),Objetos(64, 7, 'images/banana64.png', randint(0, 836)),Objetos(64, -10, 'images/bomb64.png', randint(0, 836))]
                 for i in range(diff):
                     caindo.append(objetos[randint(0,4)])
             if(len(caindo) > 0):
@@ -120,18 +120,21 @@ while running:
                     obj.cair(screen,nivel)
                     valor = obj.colisao(player1.pos_x, player1.pos_y)
                     if(valor != -1):
-                        if valor == 10:
+                        if valor == 5:
                             morango.ponto += 1
-                        elif valor == 5:
+                        elif valor == 10:
                             abacaxi.ponto += 1
-                        elif valor == 7:
-                            pitanga.ponto += 1
                         elif valor == 9:
+                            pitanga.ponto += 1
+                        elif valor == 7:
                             banana.ponto += 1
                         if valor != 0:
                             total += obj.valor
+                        if valor < 0:
+                            counter -= 5
                         caindo.remove(obj)
-
+            if(total < 0):
+                total = 0
             if(total >= 50 and total < 100):
                 nivel = 2
             elif(total >= 100):
@@ -166,6 +169,17 @@ while running:
             if botao_restart.desenhar_botao(screen):
                 counter = 61
                 total = 0
+                morango.ponto = 0
+                abacaxi.ponto = 0
+                banana.ponto = 0
+                pitanga.ponto = 0
+                nivel = 1
+                caindo = []
+                player1.pos_x = 400
+                player1.pos_y = 500
+                
+                
+                
 
     
     pygame.display.update()
