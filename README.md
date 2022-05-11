@@ -20,8 +20,8 @@ O código foi dividido em 4 arquivos, no qual no arquivo principal (Main.py) imp
 
 # Ferramentas, bibliotecas, frameworks utilizados
 
-O código foi desenvolvido no Visual Studio Code e contou com algumas alterações no próprio Github, principalmente porque a maioria dos integrantes do grupo já utilizava essa ferramenta e possuia maior familiaridade. 
-Quanto ao uso de bibliotecas, adicionamos ao nosso código o Pygame, para implementar gráficos e operações para a base do jogo, e também Random, o qual usamos para formar os diferentes tipos de spawn das frutas do jogo.
+O código foi desenvolvido com a linguagem de Python, através do Visual Studio Code, e contou com algumas alterações no próprio Github, principalmente porque a maioria dos integrantes do grupo já utilizava essa ferramenta e possuia maior familiaridade. 
+Quanto ao uso de bibliotecas, adicionamos ao nosso código o Pygame, para implementar gráficos e operações para a base do jogo, e também Random, o qual usamos para escolher de forma aleatória a posição linear e a classe dos objetos coletados.
 
 # A divisão do trabalho dentro do grupo
 
@@ -29,18 +29,18 @@ A parte de desenvolvimento e lógica do código foi mais trabalhada por Nathanie
 
 # Conceitos que foram apresentados durante a disciplina e utilizados no projeto
 
-No nosso código, fizemos uso das condições, laços de repetição, listas e funções.
+No nosso código, fizemos uso das condições, laços de repetição e funções.
 As condições foram usadas, principalmente, dentro das funções do main.py e objetos.py, como por exemplo para gerar a queda aleatória das frutas, e ainda dentro dos laços de repetição do arquivo principal para rodar o jogo (abrir e fechar a janela).
 As funções também foram amplamente utilizadas ao longo do código, definindo comandos de movimento do jogador, aparição da pontuação, aparição de objetos (frutas, bombas) junto às condições, além de conter informações das cores, imagens e ambientes.
 
 
 # Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?
 
-O maior erro cometido pela nossa equipe foi na divisão de tarefas, principalmente por a gente não saber exatamente, de início, como tudo seria feito. Isso talvez tenha ficado um pouco desequilibrado, mas a gente entendia e sempre tentava se encontrar para conversar sobre o que cada um estava fazendo e poder alinhar tudo da melhor forma e com a participação de todos.
+O maior erro cometido pela nossa equipe foi na divisão de tarefas, principalmente por a gente não saber exatamente, de início, como tudo seria feito. Isso talvez tenha ficado um pouco desequilibrado, mas a gente entendia e sempre tentava se encontrar de forma presencial, ou por meio de chamadas online com o Discord para conversar sobre o que cada um estava fazendo e poder alinhar tudo da melhor forma e com a participação de todos.
 
 # Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?
 
-
+Manipular o código em diferentes arquivos, para alguns estudantes, pois não foi abordado anteriormente na disciplina; adminstrar melhor o tempo com outras cadeiras do curso. O primeiro item foi resolvido com uma explicação de alguns integrantes mais experientes na linguagem que facilitaram o entendimento do sistema, bem como acompanhamento presencial. Já o segundo item, nós lidamos por meio de uma divisão equitativa de acordo com a dispoiblidade de tempo de cada um, e os integrantes que possuíam uma carga de trabalho e estudo menor, ficavam com mais funções e auxiliavam os demais.
 
 # Quais as lições aprendidas durante o projeto?
 
