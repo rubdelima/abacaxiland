@@ -18,10 +18,11 @@ https://github.com/rubdelima/abacaxiland.git
 
 Bem vindo à Abacaxiland, você tem 1 minuto para coletar as frutas que vão caindo, mas tenha cuidado, nessa ilha houve há muito tempo uma guerra que deixou bombas perigosas no seu caminho, essas bombas vão fazer você perder o seu precioso tempo e perderá 10 pontos. As frutas e suas pontuações respectivas são: Abacaxi, a mais deliciosa fruta da ilha lhe dá 10 pontos, a bela pitanga lhe dará 9 pontos, as bananas dão 7 pontos e os morangos dão 5 pontos.
 Consiga pontuar mais e fazer uma deliciosa salada de frutas.
+CUIDADO!!!!!!! Esse jogo é altamente viciante, não nos responsabilizamos se você reprovar em alguma matéria por gastar todo o seu tempo jogando, jogue com moderação.
 
 # Requerimentos do jogo e como instalar
 
-Para rodar o jogo é necessário ter instalado na máquina o python, onde pode ser obtido de form oficial no site: https://www.python.org/, ou em bibliotecas próprias do seu Sistema Operacional, para Linux basta digitar no terminal "sudo apt install python3". Após o Python instalado, você irá precisar instalar o pygame. Para instalar o pygame em SO que possuem bash (como MacOS e Linux) você irá digitar o comando no terminal com "pip3 install pygame", e no windowns você entrará no cmd e digitar "python3 -m pip install pygame", clonar este repositório e colocar para executar no arquivo main.py
+Para rodar o jogo é necessário ter instalado na máquina o python, onde pode ser obtido de form oficial no site: https://www.python.org/, ou em bibliotecas próprias do seu Sistema Operacional, para Linux basta digitar no terminal "sudo apt install python3". Após o Python instalado, você irá precisar instalar o pygame. Para instalar o pygame em SO que possuem bash (como MacOS e Linux) você irá digitar o comando no terminal com "pip3 install pygame", e no windowns você entrará no cmd e digitar "python3 -m pip install pygame", clonar este repositório e colocar para executar no arquivo main.py. Após instalar o pygame instale o Visual Studio Code, abra a pasta do jogo no progama e execute o arquivo "Main.py", e agora é só diversão. 
 
 # A organização do código
 
