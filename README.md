@@ -11,7 +11,7 @@ Rubens Lima (rnl2).
 
 # Link para repositório git
 
-https://github.com/rubdelima/projetoIP
+https://github.com/rubdelima/abacaxiland.git
 
 
 # Como funciona?
