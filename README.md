@@ -1,1 +1,47 @@
-# projetoIP
+# projetoIP - Equipe 5
+
+# Título do projeto e membros da equipe
+
+Abacaxiland
+
+Iasmym Mendes (ilmf);
+Nathaniel Rocha (nrs3);
+Pedro Baptista (phab);
+Rafaela Pitanga (raap);
+Rubens Lima (rnl2).
+
+# Link para repositório git
+
+https://github.com/rubdelima/projetoIP
+
+# A organização do código
+
+O código foi dividido em 4 arquivos, no qual no arquivo principal (Main.py) importamos as bibliotecas utilizadas e realizamos as configurações do jogo como um todo (criação da tela, player, variáveis, background, etc.), essas associadas ao código do ambiente, jogador e objetos do jogo, o qual dividimos em outros 3 arquivos (ambiente.py, objetos.py e player.py). Também registramos todas as referências de imagens, além de organizá-las em pastas separadas das fontes e músicas/efeitos sonoros utilizados no projeto.
+
+# Ferramentas, bibliotecas, frameworks utilizados
+
+O código foi desenvolvido no Visual Studio Code e contou com algumas alterações no próprio Github, principalmente porque a maioria dos integrantes do grupo já utilizava essa ferramenta e possuia maior familiaridade. 
+Quanto ao uso de bibliotecas, adicionamos ao nosso código o Pygame, para implementar gráficos e operações para a base do jogo, e também Random, o qual usamos para formar os diferentes tipos de spawn das frutas do jogo.
+
+# A divisão do trabalho dentro do grupo
+
+A parte de desenvolvimento e lógica do código foi mais trabalhada por Nathaniel, Pedro e Rubens. Já a parte gráfica teve maior participação de Iasmym e Rafaela. Em questão de ideias para o desenvolvimento geral do projeto, todos participaram e trabalharam juntos, sempre testando e discutindo o que seria feito.
+
+# Conceitos que foram apresentados durante a disciplina e utilizados no projeto
+
+No nosso código, fizemos uso das condições, laços de repetição, listas e funções.
+As condições foram usadas, principalmente, dentro das funções do main.py e objetos.py, como por exemplo para gerar a queda aleatória das frutas, e ainda dentro dos laços de repetição do arquivo principal para rodar o jogo (abrir e fechar a janela).
+As funções também foram amplamente utilizadas ao longo do código, definindo comandos de movimento do jogador, aparição da pontuação, aparição de objetos (frutas, bombas) junto às condições, além de conter informações das cores, imagens e ambientes.
+
+
+# Qual foi o maior erro cometido durante o projeto? Como vocês lidaram com ele?
+
+O maior erro cometido pela nossa equipe foi na divisão de tarefas, principalmente por a gente não saber exatamente, de início, como tudo seria feito. Isso talvez tenha ficado um pouco desequilibrado, mas a gente entendia e sempre tentava se encontrar para conversar sobre o que cada um estava fazendo e poder alinhar tudo da melhor forma e com a participação de todos.
+
+# Qual foi o maior desafio enfrentado durante o projeto? Como vocês lidaram com ele?
+
+
+
+# Quais as lições aprendidas durante o projeto?
+
+Uma das principais lições que aprendemos com o projeto foi a importância de escrever e manter o código o mais limpo possível, principalmente pela facilidade que isso traz de editar e até o entender melhor posteriormente, ainda mais trabalhando em equipe. Também trouxe uma experiência nova (para alguns) em relação a trabalho em grupo por meio do GitHub, e na utilidade e importância que essa ferramenta possui para a realização de projetos desse tipo, além de termos treinado bastante seu uso.
