@@ -1,8 +1,10 @@
-Link da fonte do menu: https://www.dafont.com/pt/theme.php?cat=101&page=1
+Link da fonte do menu: https://www.1001fonts.com/vitamin-font.html
 
 Link da imagem do botão de exit: https://www.flaticon.com/free-icon/exit_3558823?term=exit+button&page=1&position=41&related_id=3558823&origin=search&k=1652067062595
 
 Link da imagem do botão de start: https://www.flaticon.com/free-icon/start-button_5261913?related_id=5261913&origin=search#
+
+Link da imagem do botão de restart: https://www.flaticon.com/free-icon/refresh_5894373#
 
 Link das músicas utilizadas: https://opengameart.org/content/8-bit-sound-effects-library
 
